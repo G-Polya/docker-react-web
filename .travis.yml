@@ -1,0 +1,17 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+ - echo "start Creating an image with docerfile"
+ - docker build -t polya/react-app -f Docerfile.dev ./
+
+script:
+  - docker run -e CI=true polya/react-app npm run test -- --coverage
+
+
+after_success:
+  - echo "Test Success." 
