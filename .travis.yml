@@ -6,8 +6,8 @@ services:
   - docker
 
 before_install:
- - echo "start Creating an image with docerfile"
- - docker build -t polya/react-app -f Docerfile.dev ./
+ - echo "start Creating an image with dockerfile"
+ - docker build -t polya/react-app -f Dockerfile.dev ./
 
 script:
   - docker run -e CI=true polya/react-app npm run test -- --coverage
